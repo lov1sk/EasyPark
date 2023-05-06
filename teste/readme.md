@@ -1,14 +1,9 @@
+# Documentação da API
 
-# EasyPark
+## Descritivo da API
 
-Trata-se de um sistema para registro de estacionamentos, o qual permite realizar cadastro de um novo registro de estacionamento, onde é salvo dados como entrada de cliente e horario, e a alteração destes registros para o momento de finalizar o estacionamento de um determinado cliente, calculando assim o tempo gasto e o preço a se pagar, movendo tal registro para um historico. 
-
-Esse Projeto foi desenvolvido sobre o intuito de melhoras minhas habilidades para começar a criar projetos proprios ou para algum caso de uso especifico, treinar conceitos crud no banco noSQl, treinar o uso de express e etc.
-
-
-
-
-## Documentação da API
+Esta API foi desenvolvida para permitir que o backend possa ser desacoplado do front-end, permitindo assim uma maior flexibilidade ao trabalhar com o mesmo. A API segue os principios
+RestFull para acessos via metodos HTTP, e se comunica utilizando a sintaxe JSON
 
 #### Na tela de cadastro de estacionamentos:
 
@@ -16,9 +11,9 @@ Esse Projeto foi desenvolvido sobre o intuito de melhoras minhas habilidades par
   POST /park/new
 ```
 
-| Tipo       | Descrição                           |
-| :--------- | :---------------------------------- |
-|  `JSON {} ` | Atraves da submissao do forms, envia um objeto JSON contendo:'  name ,age ,phone ,gender ,  car: { model, year, manufacturer, plate } ' |
+| Tipo       | Descrição                                                                                                                             |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| `JSON {} ` | Atraves da submissao do forms, envia um objeto JSON contendo:' name ,age ,phone ,gender , car: { model, year, manufacturer, plate } ' |
 
 #### Na tela de listagem de estacionamentos, listar todos os estacionamentos ativos:
 
@@ -26,9 +21,9 @@ Esse Projeto foi desenvolvido sobre o intuito de melhoras minhas habilidades par
   GET /parksActive
 ```
 
-| Tipo       | Descrição                           |
-| :--------- | :---------------------------------- |
-|  `registers[] ` | Retorna os registros salvos na base de dados, seu status, e horario de inicio |
+| Tipo           | Descrição                                                                     |
+| :------------- | :---------------------------------------------------------------------------- |
+| `registers[] ` | Retorna os registros salvos na base de dados, seu status, e horario de inicio |
 
 #### Modal de detalhes de um estacionamento ativo:
 
@@ -36,8 +31,8 @@ Esse Projeto foi desenvolvido sobre o intuito de melhoras minhas habilidades par
   GET /parksActive/${id}
 ```
 
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------|
+| Parâmetro | Tipo       | Descrição                                                                                                        |
+| :-------- | :--------- | :--------------------------------------------------------------------------------------------------------------- |
 | `id`      | `ObjectId` | Envia na Url o id necessario e retorna um objeto de registro, valor da taxa a ser paga e tempo total permanecido |
 
 #### No modal de detalhes de um estacionamento ativo, ao apertar o botão para finalizar e dar baixa no registro:
@@ -46,10 +41,9 @@ Esse Projeto foi desenvolvido sobre o intuito de melhoras minhas habilidades par
   PUT /park/finish/${id}
 ```
 
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------|
+| Parâmetro | Tipo       | Descrição                                                                                                                                  |
+| :-------- | :--------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`      | `ObjectId` | Apenas solicita que o objeto localizado com o id enviado, mude seu status para finalizado e grave em seu registro o horario de finalização |
-
 
 #### Na tela de historico, listar todos os estacionamentos finalizados:
 
@@ -57,9 +51,9 @@ Esse Projeto foi desenvolvido sobre o intuito de melhoras minhas habilidades par
   GET /parksFinished
 ```
 
-| Tipo       | Descrição                           |
-| :--------- | :---------------------------------- |
-|  `registers[] ` | Retorna os registros salvos na base de dados, seu status, e horario de inicio |
+| Tipo           | Descrição                                                                     |
+| :------------- | :---------------------------------------------------------------------------- |
+| `registers[] ` | Retorna os registros salvos na base de dados, seu status, e horario de inicio |
 
 #### Modal de detalhes de um estacionamento finalizado:
 
@@ -67,17 +61,12 @@ Esse Projeto foi desenvolvido sobre o intuito de melhoras minhas habilidades par
   GET /parksFinished/${id}
 ```
 
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------|
+| Parâmetro | Tipo       | Descrição                                                                                                        |
+| :-------- | :--------- | :--------------------------------------------------------------------------------------------------------------- |
 | `id`      | `ObjectId` | Envia na Url o id necessario e retorna um objeto de registro, valor da taxa a ser paga e tempo total permanecido |
-
-
-
-
 
 ## Stack utilizada
 
 **Front-end:** HTML5, CSS, Bootstrap, JS
 
 **Back-end:** NodeJs, Typescript, ExpressJs, MongoDb
-
