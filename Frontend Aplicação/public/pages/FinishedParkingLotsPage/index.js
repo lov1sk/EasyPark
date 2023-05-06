@@ -1,4 +1,4 @@
-import getModalComponent from "./component/modalBody.js";
+import getModalFinishedComponent from "./component/modalBody.js";
 import getNotFoundMessage from "./component/notFoundMessage.js";
 import getTableBody from "./component/tableBody.js";
 
@@ -20,7 +20,6 @@ class ParksFinishedTableData {
      */
     const registers = await this.fetchData();
     const table = document.getElementById("MainTable");
-    const detailsModal = document.getElementById("DetailsModalBody");
 
     /**
      * Se o metodo fetchdata retornar nulo, ele exibe esse componente de erro
@@ -32,10 +31,17 @@ class ParksFinishedTableData {
     /**
      * renderiza a tela para cada registro salvo no banco
      */
-    registers.forEach((park) => {
+    registers.forEach(async (park) => {
       table.innerHTML += getTableBody(park);
-      detailsModal.innerHTML = getModalComponent(park);
+      await this.renderModal(park._id);
     });
+  }
+  async renderModal(id) {
+    const modalBody = document.getElementById("DetailsModalBody");
+    const parkingLot = await (
+      await fetch(`${baseUrl}/parksFinished/${id}`)
+    ).json();
+    modalBody.innerHTML = getModalFinishedComponent(parkingLot);
   }
 }
 const renderParksFinishedTableData = new ParksFinishedTableData();

@@ -1,9 +1,9 @@
-export default function getModalComponent(park) {
+export default function getModalFinishedComponent(park) {
   console.log(park);
-  const { _id } = park;
-  const { startTime, endTime, fee } = park;
-  const { name, age, phone } = park.client;
-  const { model, manufacturer, plate } = park.client.car;
+  const { _id, startTime, endTime } = park.parking;
+  const { fee } = park;
+  const { name, age, phone } = park.parking.client;
+  const { model, manufacturer, plate } = park.parking.client.car;
   const listBody = `<ol class="list-group list-group-numbered">
   <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto" >
@@ -62,7 +62,7 @@ export default function getModalComponent(park) {
   <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold">Preço pago</div>
-      ${fee}
+      ${fee} 
     </div>
   </li>
 </ol>`;

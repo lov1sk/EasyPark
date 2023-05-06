@@ -37,7 +37,7 @@ class FindFinishedParkingLotsController {
 
     return response.status(200).json({
       parking: park,
-      fee: `A taxa sugerida fica em R$${CalculateFeeUseCase.calculateFee(
+      fee: `O preço pago foi R$${CalculateFeeUseCase.calculateFee(
         timeExpent
       )},00`,
       message: "hello",
