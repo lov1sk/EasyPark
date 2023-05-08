@@ -5,6 +5,12 @@
 Esta API foi desenvolvida para permitir que o backend possa ser desacoplado do front-end, permitindo assim uma maior flexibilidade ao trabalhar com o mesmo. A API segue os principios
 RestFull para acessos via metodos HTTP, e se comunica utilizando a sintaxe JSON
 
+## Stack utilizada
+
+**Front-end:** HTML5, CSS, Bootstrap, JS
+
+**Back-end:** NodeJs, Typescript, ExpressJs, MongoDb
+
 #### Na tela de cadastro de estacionamentos:
 
 ```http
@@ -65,8 +71,3 @@ RestFull para acessos via metodos HTTP, e se comunica utilizando a sintaxe JSON
 | :-------- | :--------- | :--------------------------------------------------------------------------------------------------------------- |
 | `id`      | `ObjectId` | Envia na Url o id necessario e retorna um objeto de registro, valor da taxa a ser paga e tempo total permanecido |
 
-## Stack utilizada
-
-**Front-end:** HTML5, CSS, Bootstrap, JS
-
-**Back-end:** NodeJs, Typescript, ExpressJs, MongoDb
